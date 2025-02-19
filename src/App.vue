@@ -26,6 +26,24 @@ export default {
     <Footer></Footer>
 </template>
 
-<style scoped>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #c9c9c8;
+    background-color: rgba(29,29,32,255);
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+}
 
+main {
+    height: calc(100vh - 280px);
+    /* debug */
+    /* border: 2px red solid; */
+    
+}
 </style>
