@@ -1,7 +1,7 @@
 <template>
     <footer>
       <section>
-        Made By Michele Lafronza
+        Made By <span>Michele Lafronza</span>   &reg
       </section>
     </footer>
 </template>
@@ -27,6 +27,10 @@
     margin-right: 120px;
     /* debug */
     /* border: 2px solid blue; */
+  }
+
+  span {
+    font-weight: 500;
   }
 
 </style>

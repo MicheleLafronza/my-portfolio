@@ -29,7 +29,7 @@
   }
 
   section {
-    width: 50%;
+    width: 35%;
     /* debug */
     /* border: 2px blue solid; */
   }

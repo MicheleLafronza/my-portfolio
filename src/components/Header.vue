@@ -5,6 +5,8 @@
       
       <nav>
         <router-link to="/"><i class="fa-solid fa-house"></i></router-link>
+        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+        <a href=""><i class="fa-brands fa-github"></i></a>
         <router-link to="/contact"><i class="fa-solid fa-file-signature"></i></router-link>
       </nav>
     </header>
