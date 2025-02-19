@@ -1,8 +1,8 @@
 <template>
     <footer>
-      <section>
+      <div class="ft">
         Made By <span>Michele Lafronza</span>   &reg
-      </section>
+      </div>
     </footer>
 </template>
   
@@ -19,15 +19,32 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    position: relative;
     /* debug */
     /* border: 2px yellow solid; */
   }
 
-  section {
+  .ft {
     margin-right: 120px;
+    opacity: 0;
+
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    }
+
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+      
+      100% {
+        opacity: 1;
+      }
     /* debug */
     /* border: 2px solid blue; */
-  }
+    } 
 
   span {
     font-weight: 500;

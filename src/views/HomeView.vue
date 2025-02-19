@@ -1,48 +1,85 @@
 <script>
+import ProjectsSection from '@/components/ProjectsSection.vue';
 
+export default {
+  name: "HomeView",
+  components: {
+    ProjectsSection
+  },
+  methods: {
+
+  }
+}
 </script>
 
 <template>
   <main>
 
     <section>
-      <h1>BENVENUTO</h1>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore quas error saepe sunt cumque iure, quo similique corrupti aliquid facilis consequuntur at deleniti sequi iste earum mollitia culpa cupiditate. Id?</p>
+      <div class="line vertical"></div>
+      <h1 class="title">BENVENUTO</h1>
+      <p id="p1">Mi chiamo <span>Michele Lafronza</span> e sono un <span>Full Stack Web Developer</span>. In questo sito puoi dare uno sguardo ai miei progetti, puoi contattarmi per offrirmi dei lavori, oppure per dirmi qualsiasi cosa ti venga in mente.</p>
+      <p id="p2">Tra le mie competenze ci sono vari linguaggi come <span>JAVASCRIPT</span> e <span>PHP</span>, e frameworks come <span>VueJs</span> e <span>Laravel</span>, in più ho skills anche in database relazionali come <span>MYSQL</span>.</p>
+      <p id="p3">Quello che mi contradistingue è la passione e la voglia di imparare nuove tecnologie e l'attenzione e la cura verso i miei clienti e i miei colleghi di lavoro.</p>
     </section>
 
-    <div id="projects-container">
-      <ul id="projects-list">
-        <li>Progetto 1</li>
-        <li>Progetto 2</li>
-        <li>Progetto 3</li>
-      </ul>
-    </div>
+    <ProjectsSection></ProjectsSection>
   </main>
 </template>
 
 <style scoped>
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
+
+  span {
+    font-weight: 500;
   }
 
-  section {
-    width: 35%;
-    /* debug */
-    /* border: 2px blue solid; */
+  #p1, #p2 {
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 20px;
   }
 
-  #projects-container {
-    align-self: flex-start;
-    margin-top: 50px;
-    /* debug */
-    /* border: 2px yellow solid; */
+  .line {
+    position: absolute;
+    background: rgba(204,204,204,255);
   }
 
-  #projects-list {
-    list-style-type: none;
+  .vertical {
+      width: 3px;
+      border-radius: 2.5px;
+      top: 0px;
+      left: -20px;
 
-  }
+      animation-name: stretchv;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+    }
+
+    @keyframes stretchv{
+      0% {
+        height: 0px;
+      }
+
+      25% {
+        height: calc(250px * 0.25);
+      }
+
+      50% {
+        height: calc(250px * 0.5);
+      }
+      
+      75% {
+        height: calc(250px * 0.75);
+      }
+
+      100%{
+        height: 250px;
+      }
+    }
+
+  
 </style>

@@ -1,5 +1,13 @@
 <script>
-
+  export default {
+    name: "ProjectView",
+    props: ['id'],
+    data(){
+      return {
+        projects: []
+      };
+    },
+  }
 </script>
 
 <template>

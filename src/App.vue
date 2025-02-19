@@ -42,8 +42,36 @@ export default {
 
 main {
     height: calc(100vh - 280px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+  
     /* debug */
     /* border: 2px red solid; */
     
 }
+
+section {
+    width: 35%;
+    position: relative;
+    opacity: 0;
+
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    }
+
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+      
+      100% {
+        opacity: 1;
+      }
+    /* debug */
+    /* border: 2px solid blue; */
+    } 
 </style>
