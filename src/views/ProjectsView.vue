@@ -1,7 +1,9 @@
 <script>
   export default {
     name: "ProjectView",
-    props: ['id'],
+    props: {
+      id: String
+    },
     data(){
       return {
         projects: []
@@ -12,7 +14,7 @@
 
 <template>
   <main>
-    ciao sono projectview
+    Project {{ id }}
   </main>
 </template>
 

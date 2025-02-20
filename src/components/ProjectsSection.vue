@@ -9,12 +9,14 @@
             projects: [
                 {
                     title: "Boolzap",
-                    summary: "App simil Whatsapp a tema Bojack Horseman"
+                    summary: "App simil Whatsapp a tema Bojack Horseman",
+                    id: 0
                     
                 },
                 {
                     title: "Deliveboo",
-                    summary: "App di foodelivery"
+                    summary: "App di foodelivery",
+                    id: 1
                 }
             ]
         };
@@ -30,7 +32,7 @@
         <div class="line vertical"></div>
         <h2 class="title">I MIEI PROGETTI</h2>
         <ul id="projects-list">
-            <li class="items" v-for="(project, i) in projects" :key="i"><span>{{ project.title }}</span> - {{ project.summary }}</li>
+            <li class="items" v-for="(project, i) in projects" :key="i"><router-link :to="{ name: 'projectsview', params: { id: project.id }}"><span>{{ project.title }}</span> - {{ project.summary }}</router-link></li>
         </ul>
     </div>
 </template>
