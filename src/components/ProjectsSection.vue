@@ -1,29 +1,35 @@
 <script>
+
+  import axios from 'axios';
+
     export default {
         name: "ProjectsSection",
         components:{
 
         },
         data() {
-        return {
-            projects: [
-                {
-                    title: "Boolzap",
-                    summary: "App simil Whatsapp a tema Bojack Horseman",
-                    id: 0
-                    
-                },
-                {
-                    title: "Deliveboo",
-                    summary: "App di foodelivery",
-                    id: 1
-                }
-            ]
-        };
-    },
+          return {
+              projects: [],
+              URL: 'http://127.0.0.1:8000/api/projects',
+          };
+        },
         methods: {
-
+          takeAllProjects(){
+            axios.get(this.URL)
+              .then((response) => {
+                // success
+                this.projects = response.data;
+              })
+              .catch((error) => {
+                // error
+                console.log(error);
+              })
+          }
+        },
+        mounted(){
+          this.takeAllProjects();
         }
+
     }
 </script>
 
@@ -32,7 +38,7 @@
         <div class="line vertical"></div>
         <h2 class="title">I MIEI PROGETTI</h2>
         <ul id="projects-list">
-            <li class="items" v-for="(project, i) in projects" :key="i"><router-link :to="{ name: 'projectsview', params: { id: project.id }}"><span>{{ project.title }}</span> - {{ project.summary }}</router-link></li>
+            <li class="items" v-for="(project, i) in projects" :key="i"><router-link :to="{ name: 'projectsview', params: { slug: project.slug }}"><span>{{ project.project_title }}</span> - {{ project.summary }}</router-link></li>
         </ul>
     </div>
 </template>
