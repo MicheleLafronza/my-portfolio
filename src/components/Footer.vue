@@ -20,6 +20,7 @@
     flex-direction: row-reverse;
     align-items: center;
     position: relative;
+    z-index: 0;
     /* debug */
     /* border: 2px yellow solid; */
   }

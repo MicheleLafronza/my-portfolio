@@ -42,6 +42,7 @@ export default {
 
 main {
     height: calc(100vh - 280px);
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
