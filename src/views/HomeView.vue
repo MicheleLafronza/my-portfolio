@@ -5,9 +5,6 @@ export default {
   name: "HomeView",
   components: {
     ProjectsSection
-  },
-  methods: {
-
   }
 }
 </script>
