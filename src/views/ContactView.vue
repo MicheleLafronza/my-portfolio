@@ -26,11 +26,12 @@
             message: this.message
           });
 
-          this.successMessage = "Messaggio inviato con successo!";
+          this.successMessage = 'Messaggio inviato correttamente!';
           this.email = "";
           this.message = "";
         } catch (error) {
-          this.errorMessage = "Errore nell'invio del messaggio";
+          this.errorMessage = "Errore nell'invio del messaggio, assicurati che la l'indirizzo mail sia valido e che il messaggio non sia vuoto.";
+          console.log(error.response.data.message);
         } finally {
           this.isLoading = false;
         }
@@ -47,7 +48,7 @@
   <main>
     <section>
       <h1 class="title">CONTATTAMI</h1>
-      <form @submit.prevent="sendMessage" class="form-container" method="post">
+      <form action="{{ URL }}" @submit.prevent="sendMessage" class="form-container" method="post">
         <label for="mail">Inserisci qui la tua mail</label>
         <input type="text" v-model="email" id="mail" placeholder="tua@mail.com">
         <label for="message">Inserisci il tuo messaggio</label>
