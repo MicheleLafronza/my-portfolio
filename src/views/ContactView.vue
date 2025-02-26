@@ -10,7 +10,9 @@
       }
     },
     methods:{
-
+      resetForm() {
+        this.$refs.contactForm.reset();
+      }
     }
   }
 </script>
@@ -19,7 +21,7 @@
   <main>
     <section>
       <h1 class="title">CONTATTAMI</h1>
-      <form action="https://formsubmit.co/18eb67f0702edd329c58d94ffaa689a5" class="form-container" method="post">
+      <form action="https://formsubmit.co/18eb67f0702edd329c58d94ffaa689a5" class="form-container" method="post" ref="contactForm">
         <label for="email">Inserisci qui la tua mail</label>
         <input type="email" name="email" id="email" placeholder="tua@mail.com">
         <label for="fullname">Inserisci il tuo nome</label>
@@ -30,7 +32,7 @@
           <!-- {{ isLoading ? "Invio..." : "Invia Messaggio" }} -->
             Invia
         </button>
-        <button type="button" class="btn-reset">
+        <button type="button" class="btn-reset" @click="resetForm">
         Resetta
         </button>
       </form>
