@@ -6,7 +6,7 @@
         <div class="line vertical"></div>
       </div>
       
-      <div class="logo"><img src="/M.jpg" alt="logo"></div>
+      <div class="logo"><router-link class="ic" to="/"><img src="/M.jpg" alt="logo"></router-link></div>
       
       <nav>
         <router-link class="ic" to="/"><i class="fa-solid fa-house"></i></router-link>

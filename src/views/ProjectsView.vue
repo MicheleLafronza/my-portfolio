@@ -45,7 +45,7 @@
         </video>
       </div>
       
-      <div class="pre-image">Clicca sulle immagini per ingrandirle!!</div>
+      <div v-if="project.hasImage" class="pre-image">Clicca sulle immagini per ingrandirle!!</div>
       <!-- Contenitore flex per allineare le immagini -->
       <div v-if="project.hasImage" class="image-container">
         <img v-if="project.img1" :src="project.img1" alt="Immagine 1"
@@ -75,6 +75,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.video-container video {
+  width: 100%;
+  max-width: 700px; /* Evita che il video diventi troppo grande */
 }
 
 
@@ -135,8 +140,7 @@ section {
   }
 
   section {
-    width: 60%;
-    
+    width: 80%;
   }
 
   .title {
@@ -162,7 +166,7 @@ section {
 }
 
 .image-container img {
-  min-width: 50%; /* Le immagini occupano il 30% della larghezza del contenitore */
+  min-width: 30%; /* Le immagini occupano il 30% della larghezza del contenitore */
   max-width: 350px; /* Massima larghezza per non diventare troppo grandi */
   height: auto; /* Mantiene le proporzioni */
   border-radius: 10px; /* Angoli arrotondati per un aspetto più pulito */
@@ -175,6 +179,17 @@ section {
 .image-container img:hover {
   border: 1px solid wheat;
   cursor: pointer;
+}
+
+@media (max-width: 676px){
+  section {
+    margin: 0 auto;
+  }
+  .image-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
 }
 
 </style>

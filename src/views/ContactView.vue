@@ -97,4 +97,11 @@ button {
   transform: scale(1.05);
 }
 
+@media (max-width: 676px) {
+  section {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 </style>

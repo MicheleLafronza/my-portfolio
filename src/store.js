@@ -12,8 +12,8 @@ export const store = reactive({
       img1: '',
       img2: '',
       img3: '',
-      hasVideo: false,
-      video: ''
+      hasVideo: true,
+      video: '/videos/Deliveboo.mp4'
     },
     {
       title: 'BOOLZAP',
