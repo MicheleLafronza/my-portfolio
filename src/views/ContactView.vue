@@ -19,7 +19,7 @@
   <main>
     <section>
       <h1 class="title">CONTATTAMI</h1>
-      <form action="https://formsubmit.co/michele.lafronza91@gmail.com" class="form-container" method="post">
+      <form action="https://formsubmit.co/18eb67f0702edd329c58d94ffaa689a5" class="form-container" method="post">
         <label for="email">Inserisci qui la tua mail</label>
         <input type="email" name="email" id="email" placeholder="tua@mail.com">
         <label for="fullname">Inserisci il tuo nome</label>
