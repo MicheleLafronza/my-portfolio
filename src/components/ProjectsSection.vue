@@ -1,6 +1,7 @@
 <script>
 
-  import axios from 'axios';
+  // import axios from 'axios';
+  import { store } from '../store'
 
     export default {
         name: "ProjectsSection",
@@ -9,28 +10,14 @@
         },
         data() {
           return {
-              projects: [],
-              URL: 'http://127.0.0.1:8000/api/projects',
-              isLoading: true,
+              projects: store.projects
           };
         },
         methods: {
-          takeAllProjects(){
-            axios.get(this.URL)
-              .then((response) => {
-                this.isLoading = true;
-                // success
-                this.projects = response.data;
-                this.isLoading = false;
-              })
-              .catch((error) => {
-                // error
-                console.log(error);
-              })
-          }
+
         },
         mounted(){
-          this.takeAllProjects();
+
         }
 
     }
@@ -40,9 +27,8 @@
     <div id="projects-container">
         <div class="line vertical"></div>
         <h2 class="title">I MIEI PROGETTI</h2>
-        <span v-if="isLoading" class="loader"></span>
         <ul id="projects-list">
-            <li class="items" v-for="(project, i) in projects" :key="i"><router-link :to="{ name: 'projectsview', params: { slug: project.slug }}"><span>{{ project.project_title }}</span> - {{ project.summary }}</router-link></li>
+          <li class="items" v-for="(project, index) in projects" :key="index"><router-link :to="{ name: 'projectsview', params: { id: index }}"><span>{{ project.title }}</span> - {{ project.summary }}</router-link></li>
         </ul>
     </div>
 </template>

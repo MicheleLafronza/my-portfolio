@@ -1,35 +1,18 @@
 <script>
-  import axios from 'axios';
+  // import axios from 'axios';
+  import { store } from '../store';
   export default {
     name: "ProjectView",
     props: {
-      slug: String
+      id: String
     },
     data(){
       return {
-        slugToFind: this.slug,
-        project: {},
-        URL: 'http://127.0.0.1:8000/api/project/',
-        isLoading: true,
+        project: store.projects[this.id],
         selectedImage: null // Contiene l'URL dell'immagine selezionata
       };
     },
     methods: {
-      callProject(){
-        this.isLoading = true
-            axios.get(this.URL + this.slugToFind)
-              .then((response) => {
-                // success
-                this.project = response.data;
-                console.log(this.project);
-                this.isLoading = false;
-                
-              })
-              .catch((error) => {
-                // error
-                console.log(error);
-              })
-          },
       openImage(imgSrc) {
       this.selectedImage = imgSrc; // Imposta l'immagine selezionata
       },
@@ -38,7 +21,8 @@
       }
     },
     mounted(){
-      this.callProject();
+      console.log(this.project);
+      
 }
 
   }
@@ -47,25 +31,24 @@
 <template>
   <main>
     <section>
-      <h1 class="title">{{ project.project_title }}</h1>
-      <span v-if="isLoading" class="loader"></span>
-      <p v-if="!isLoading" class="description">{{ project.description }}</p>
+      <h1 class="title">{{ project.title }}</h1>
+      <p class="description">{{ project.description }}</p>
       
       <!-- Contenitore flex per allineare le immagini -->
-      <div v-if="!isLoading" class="image-container">
+      <!-- <div class="image-container">
         <img v-if="project.img1" :src="'http://127.0.0.1:8000/storage/' + project.img1" alt="Immagine 1"
         @click="openImage('http://127.0.0.1:8000/storage/' + project.img1)">
         <img v-if="project.img2" :src="'http://127.0.0.1:8000/storage/' + project.img2" alt="Immagine 2"
         @click="openImage('http://127.0.0.1:8000/storage/' + project.img2)">
         <img v-if="project.img3" :src="'http://127.0.0.1:8000/storage/' + project.img3" alt="Immagine 3"
         @click="openImage('http://127.0.0.1:8000/storage/' + project.img3)">
-      </div>
+      </div> -->
     </section>
     
   </main>
-  <div v-if="selectedImage" class="modal" @click="closeImage">
+  <!-- <div v-if="selectedImage" class="modal" @click="closeImage">
         <img :src="selectedImage" class="modal-image">
-  </div>
+  </div> -->
 </template>
 
 <style scoped>

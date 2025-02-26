@@ -6,40 +6,11 @@
     name: 'ContactView',
     data(){
       return {
-        URL: "http://127.0.0.1:8000/api/contact",
-        isLoading: false,
-        email: "",
-        message: "",
-        successMessage: "",
-        errorMessage: ""
+
       }
     },
     methods:{
-      async sendMessage(){
-        this.isLoading = true;
-        this.successMessage = "";
-        this.errorMessage = "";
 
-        try {
-          await axios.post(this.URL, {
-            email: this.email,
-            message: this.message
-          });
-
-          this.successMessage = 'Messaggio inviato correttamente!';
-          this.email = "";
-          this.message = "";
-        } catch (error) {
-          this.errorMessage = "Errore nell'invio del messaggio, assicurati che la l'indirizzo mail sia valido e che il messaggio non sia vuoto.";
-          console.log(error.response.data.message);
-        } finally {
-          this.isLoading = false;
-        }
-      },
-      resetForm(){
-        this.email = "";
-        this.message = "";
-      }
     }
   }
 </script>
@@ -48,20 +19,23 @@
   <main>
     <section>
       <h1 class="title">CONTATTAMI</h1>
-      <form action="{{ URL }}" @submit.prevent="sendMessage" class="form-container" method="post">
-        <label for="mail">Inserisci qui la tua mail</label>
-        <input type="text" v-model="email" id="mail" placeholder="tua@mail.com">
+      <form action="https://formsubmit.co/michele.lafronza91@gmail.com" class="form-container" method="post">
+        <label for="email">Inserisci qui la tua mail</label>
+        <input type="email" name="email" id="email" placeholder="tua@mail.com">
+        <label for="fullname">Inserisci il tuo nome</label>
+        <input type="text" name="name" id="fullname" placeholder="Inserisci il tuo nome">
         <label for="message">Inserisci il tuo messaggio</label>
-        <textarea v-model="message" id="message" placeholder="Messaggio.."></textarea>
-        <button type="submit" class="btn-submit" :disabled="isLoading">
-          {{ isLoading ? "Invio..." : "Invia Messaggio" }}
+        <textarea name="message" id="message" placeholder="Messaggio.."></textarea>
+        <button type="submit" class="btn-submit">
+          <!-- {{ isLoading ? "Invio..." : "Invia Messaggio" }} -->
+            Invia
         </button>
-        <button type="button" class="btn-reset" @click="resetForm">
+        <button type="button" class="btn-reset">
         Resetta
         </button>
       </form>
-      <p v-if="successMessage" class="success">{{ successMessage }}</p>
-      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      <!-- <p v-if="successMessage" class="success">{{ successMessage }}</p>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p> -->
     </section>
   </main>
 </template>
