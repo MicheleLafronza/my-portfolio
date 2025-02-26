@@ -41,7 +41,7 @@ export default {
 }
 
 main {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 230px);
     overflow: auto;
     display: flex;
     justify-content: center;
