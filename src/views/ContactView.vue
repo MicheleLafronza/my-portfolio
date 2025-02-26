@@ -6,7 +6,9 @@
     name: 'ContactView',
     data(){
       return {
-
+        email: '',
+        fullname: '',
+        message:''
       }
     },
     methods:{
@@ -23,13 +25,12 @@
       <h1 class="title">CONTATTAMI</h1>
       <form action="https://formsubmit.co/18eb67f0702edd329c58d94ffaa689a5" class="form-container" method="post" ref="contactForm">
         <label for="email">Inserisci qui la tua mail</label>
-        <input type="email" name="email" id="email" placeholder="tua@mail.com">
+        <input type="email" name="email" id="email" v-model="email" placeholder="tua@mail.com">
         <label for="fullname">Inserisci il tuo nome</label>
-        <input type="text" name="name" id="fullname" placeholder="Inserisci il tuo nome">
+        <input type="text" name="name" id="fullname" v-model="fullname" placeholder="Inserisci il tuo nome">
         <label for="message">Inserisci il tuo messaggio</label>
-        <textarea name="message" id="message" placeholder="Messaggio.."></textarea>
-        <button type="submit" class="btn-submit">
-          <!-- {{ isLoading ? "Invio..." : "Invia Messaggio" }} -->
+        <textarea name="message" id="message" v-model="message" placeholder="Messaggio.."></textarea>
+        <button type="submit" class="btn-submit" :disabled="!email || !fullname || !message">
             Invia
         </button>
         <button type="button" class="btn-reset" @click="resetForm">
