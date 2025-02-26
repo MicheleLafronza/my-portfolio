@@ -4,15 +4,18 @@
   export default {
     name: "ProjectView",
     props: {
-      id: String
+      slug: String
     },
     data(){
       return {
-        project: store.projects[this.id],
+        projects: [],
         selectedImage: null // Contiene l'URL dell'immagine selezionata
       };
     },
     methods: {
+      takeProject(slug){
+        this.projects = store.projects.filter((project) => project.slug === slug)
+      },
       openImage(imgSrc) {
       this.selectedImage = imgSrc; // Imposta l'immagine selezionata
       },
@@ -21,7 +24,8 @@
       }
     },
     mounted(){
-      console.log(this.project);
+      this.takeProject(this.slug);
+      console.log(this.projects);
       
 }
 
@@ -30,28 +34,49 @@
 
 <template>
   <main>
-    <section>
+    <section v-for="(project, index) in projects" :key="index">
       <h1 class="title">{{ project.title }}</h1>
       <p class="description">{{ project.description }}</p>
+
+      <div class="video-container">
+        <video v-if="project.hasVideo" controls width="600">
+          <source :src="project.video" type="video/mp4" />
+          Il tuo browser non supporta il tag video.
+        </video>
+      </div>
       
+      <div class="pre-image">Clicca sulle immagini per ingrandirle!!</div>
       <!-- Contenitore flex per allineare le immagini -->
-      <!-- <div class="image-container">
-        <img v-if="project.img1" :src="'http://127.0.0.1:8000/storage/' + project.img1" alt="Immagine 1"
-        @click="openImage('http://127.0.0.1:8000/storage/' + project.img1)">
-        <img v-if="project.img2" :src="'http://127.0.0.1:8000/storage/' + project.img2" alt="Immagine 2"
-        @click="openImage('http://127.0.0.1:8000/storage/' + project.img2)">
-        <img v-if="project.img3" :src="'http://127.0.0.1:8000/storage/' + project.img3" alt="Immagine 3"
-        @click="openImage('http://127.0.0.1:8000/storage/' + project.img3)">
-      </div> -->
+      <div v-if="project.hasImage" class="image-container">
+        <img v-if="project.img1" :src="project.img1" alt="Immagine 1"
+        @click="openImage(project.img1)">
+        <img v-if="project.img2" :src="project.img2" alt="Immagine 2"
+        @click="openImage(project.img2)">
+        <img v-if="project.img3" :src="project.img3" alt="Immagine 3"
+        @click="openImage(project.img3)">
+      </div>
     </section>
     
   </main>
-  <!-- <div v-if="selectedImage" class="modal" @click="closeImage">
+  <div v-if="selectedImage" class="modal" @click="closeImage">
         <img :src="selectedImage" class="modal-image">
-  </div> -->
+  </div>
 </template>
 
 <style scoped>
+.pre-image {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.video-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .modal {
   position: fixed;
@@ -126,18 +151,18 @@ section {
     border: 2px solid gray;
     border-radius: 20px;
     padding: 20px;
+    letter-spacing: 1px;
   }
 
   .image-container {
   display: flex;
   justify-content: center; /* Allinea al centro */
   gap: 20px; /* Spazio tra le immagini */
-  margin-top: 20px;
-  padding: 40px;
+  padding: 20px;
 }
 
 .image-container img {
-  width: 50%; /* Le immagini occupano il 30% della larghezza del contenitore */
+  min-width: 50%; /* Le immagini occupano il 30% della larghezza del contenitore */
   max-width: 350px; /* Massima larghezza per non diventare troppo grandi */
   height: auto; /* Mantiene le proporzioni */
   border-radius: 10px; /* Angoli arrotondati per un aspetto più pulito */

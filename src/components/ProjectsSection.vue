@@ -28,12 +28,15 @@
         <div class="line vertical"></div>
         <h2 class="title">I MIEI PROGETTI</h2>
         <ul id="projects-list">
-          <li class="items" v-for="(project, index) in projects" :key="index"><router-link :to="{ name: 'projectsview', params: { id: index }}"><span>{{ project.title }}</span> - {{ project.summary }}</router-link></li>
+          <li class="items" v-for="(project, index) in projects" :key="index"><router-link :to="{ name: 'projectsview', params: { slug: project.slug }}"><span>{{ project.title }}</span> - {{ project.summary }}</router-link></li>
         </ul>
     </div>
 </template>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
 
 .loader {
     width: 48px;

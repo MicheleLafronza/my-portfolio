@@ -34,7 +34,7 @@
     }
 
     header {
-        height: 200px;
+        height: 150px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -93,7 +93,7 @@
     }
 
     .top-left {
-      top: 50px;
+      top: 30px;
       left: 100px;
     }
 
