@@ -41,7 +41,7 @@ export default {
 }
 
 main {
-    height: calc(100vh - 230px);
+    height: calc(100vh - 180px);
     overflow: auto;
     display: flex;
     justify-content: center;
@@ -74,5 +74,13 @@ section {
       }
     /* debug */
     /* border: 2px solid blue; */
-    } 
+    }
+    
+    
+    @media (max-width: 676px){
+        main {
+            display: block;
+            padding-top: 100px;
+        }
+    }
 </style>

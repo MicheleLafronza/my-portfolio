@@ -78,5 +78,19 @@ export default {
       }
     }
 
+    @media (max-width: 676px){
+      .line {
+        display: none;
+      }
+
+      section {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   
 </style>

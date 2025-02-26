@@ -23,7 +23,7 @@
   };
   </script>
   
-  <style scoped>
+<style scoped>
     .ic {
       transition: all 0.2s linear;
     }
@@ -171,4 +171,46 @@
         height: 100px;
       }
     }
+
+
+    @media only screen and (max-width: 676px){ 
+    
+    .corner {
+      display: none;
+    }
+
+    .logo {
+      display: none !important;
+    }
+
+    .logo img {
+      display: none;
+    }
+
+    /* header {
+      height: 100px;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    } */
+    header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(29,29,32,255); /* Assicurati che non sia trasparente */
+    z-index: 1000;
+    padding-top: 0px;
+}
+
+    nav {
+      margin-right: 0px !important;
+    }
+    
+
+  }
   </style>

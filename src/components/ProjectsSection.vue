@@ -26,6 +26,7 @@
 <template>
     <div id="projects-container">
         <div class="line vertical"></div>
+        <div class="line-horizontal"></div>
         <h2 class="title">I MIEI PROGETTI</h2>
         <ul id="projects-list">
           <li class="items" v-for="(project, index) in projects" :key="index"><router-link :to="{ name: 'projectsview', params: { slug: project.slug }}"><span>{{ project.title }}</span> - {{ project.summary }}</router-link></li>
@@ -34,6 +35,10 @@
 </template>
 
 <style scoped>
+.line-horizontal {
+  display: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -145,5 +150,56 @@ a {
 
 span {
     font-weight: 500;
+}
+
+@media (max-width: 676px){
+  #projects-container {
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .line-horizontal {
+    display: block;
+    background: rgba(204,204,204,255);
+    height: 5px;
+    width: 300px;
+    border-radius: 2.5px;
+    margin: 0 auto 20px auto;
+
+    animation-name: stretchhh;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+  }
+  
+  @keyframes stretchhh{
+      0% {
+        width: 0px;
+      }
+
+      25% {
+        width: calc(300px * 0.25);
+      }
+
+      50% {
+        width: calc(300px * 0.5);
+      }
+      
+      75% {
+        width: calc(300px * 0.75);
+      }
+
+      100%{
+        width: 300px;
+      }
+
+
+}
+
 }
 </style>
