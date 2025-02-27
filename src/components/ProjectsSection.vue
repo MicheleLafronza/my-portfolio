@@ -39,10 +39,6 @@
   display: none;
 }
 
-a {
-  text-decoration: none;
-}
-
 .loader {
     width: 48px;
     height: 48px;
