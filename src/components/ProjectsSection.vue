@@ -114,7 +114,7 @@
       width: 3px;
       border-radius: 2.5px;
       top: 0px;
-      left: -30px;
+      left: -40px;
 
       animation-name: stretchv;
       animation-duration: 0.5s;
